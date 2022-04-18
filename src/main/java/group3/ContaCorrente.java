@@ -2,6 +2,9 @@ package group3;
 
 public class ContaCorrente {
 
+    // classe do exercicio 10
+
+    // atributos da classe ContaCorrente
     private String numeroConta;
     private String nomeCorrentista;
     private double saldo;
