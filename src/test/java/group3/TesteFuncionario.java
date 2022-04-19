@@ -82,5 +82,11 @@ public class TesteFuncionario
         Funcionario funcionario = new Funcionario(2500);
         assertEquals(2387.5, funcionario.getSalarioLiquido());
     }
+
+    @Test
+    public void testSalarioBrutoIgual2500(){
+        Funcionario funcionario = new Funcionario(2500);
+        assertEquals(2500, funcionario.getSalarioBruto());
+    }
 }
 

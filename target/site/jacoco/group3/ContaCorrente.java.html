@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pt"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ContaCorrente.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">trabalhoFDSTeste</a> &gt; <a href="index.source.html" class="el_package">group3</a> &gt; <span class="el_source">ContaCorrente.java</span></div><h1>ContaCorrente.java</h1><pre class="source lang-java linenums">package group3;
+
+public class ContaCorrente {
+
+    // classe do exercicio 10
+
+    // atributos da classe ContaCorrente
+    private String numeroConta;
+    private String nomeCorrentista;
+    private double saldo;
+    private String categoria;
+
+    //construtor da classe ContaCorrente
+<span class="nc" id="L14">    public ContaCorrente(String numeroConta, String nomeCorrentista){</span>
+<span class="nc" id="L15">        this.numeroConta = numeroConta;</span>
+<span class="nc" id="L16">        this.nomeCorrentista = nomeCorrentista;</span>
+<span class="nc" id="L17">        this.saldo = 0.0;</span>
+<span class="nc" id="L18">        this.categoria = &quot;Silver&quot;;</span>
+<span class="nc" id="L19">    }</span>
+
+
+
+
+    // getters da classe 
+    public String getNumeroConta(){
+<span class="nc" id="L26">        return numeroConta;</span>
+    }
+    public String getNomeCorrentista(){
+<span class="nc" id="L29">        return nomeCorrentista;</span>
+    }
+    public double getSaldo(){
+<span class="nc" id="L32">        return saldo;</span>
+    }
+    public String getCategoria(){
+<span class="nc" id="L35">        return categoria;</span>
+    }
+
+
+
+
+    public boolean deposito(double valor){
+        //retorna falso se o valor for negativo ou menor de R$10.00
+<span class="nc bnc" id="L43" title="All 2 branches missed.">        if(valor &lt; 10){</span>
+<span class="nc" id="L44">            return false;</span>
+        }
+        
+        // adiciona o novo saldo de acordo com a categoria da conta
+
+<span class="nc bnc" id="L49" title="All 4 branches missed.">        switch(categoria){</span>
+            // deposito sem valorização
+            case &quot;Silver&quot;:
+<span class="nc" id="L52">                this.saldo += valor;</span>
+<span class="nc" id="L53">                break;</span>
+
+            // 1% de valorização
+            case &quot;Gold&quot;:
+<span class="nc" id="L57">                this.saldo += (valor * 1.01);</span>
+<span class="nc" id="L58">                break;</span>
+
+            // 2.5% de valorização
+            case &quot;Platinum&quot;:
+<span class="nc" id="L62">                this.saldo += (valor * 1.025);</span>
+<span class="nc" id="L63">                break;</span>
+
+            default:
+<span class="nc" id="L66">                this.saldo += saldo;</span>
+        }
+        
+        // Atualiza a categoria do cartao se a marca foi alcançada
+
+        // saldo &gt; 50k = Gold
+<span class="nc bnc" id="L72" title="All 4 branches missed.">        if(this.categoria.equalsIgnoreCase(&quot;Silver&quot;) &amp;&amp; this.saldo &gt;= 50000){</span>
+<span class="nc" id="L73">            this.categoria = &quot;Gold&quot;;</span>
+
+        // saldo &gt; 200k = Platinum
+<span class="nc bnc" id="L76" title="All 4 branches missed.">        } else if(this.categoria.equalsIgnoreCase(&quot;Gold&quot;) &amp;&amp; this.saldo &gt;= 200000){</span>
+<span class="nc" id="L77">            this.categoria = &quot;Platinum&quot;;</span>
+        }
+
+<span class="nc" id="L80">        return true;</span>
+    }
+
+
+
+    public boolean retirada(double valor){
+        //retorna falso se o valor for negativo ou menor de R$10.00
+<span class="nc bnc" id="L87" title="All 2 branches missed.">        if(valor &lt; 10){</span>
+<span class="nc" id="L88">            return false;</span>
+        }
+
+        // remove o valor da conta
+<span class="nc" id="L92">        this.saldo -= valor;</span>
+
+        // Atualiza a categoria do cartao se a marca foi alcançada
+
+        // saldo &lt; 25k = Silver
+<span class="nc bnc" id="L97" title="All 4 branches missed.">        if(this.categoria.equalsIgnoreCase(&quot;Gold&quot;) &amp;&amp; this.saldo &lt;= 25000){</span>
+<span class="nc" id="L98">            this.categoria = &quot;Silver&quot;;</span>
+
+        // saldo &lt; 100k = Gold
+<span class="nc bnc" id="L101" title="All 4 branches missed.">        } else if(this.categoria.equalsIgnoreCase(&quot;Platinum&quot;) &amp;&amp; this.saldo &lt;= 100000){</span>
+<span class="nc" id="L102">            this.categoria = &quot;Gold&quot;;</span>
+        }
+
+<span class="nc" id="L105">        return true;</span>
+    }
+
+
+    //toString da Classe
+    @Override
+    public String toString(){
+<span class="nc" id="L112">        return &quot;Conta Corrente &quot; + this.numeroConta + &quot; [nome = &quot; + this.nomeCorrentista +</span>
+        &quot;, categoria da conta = &quot; + this.categoria + &quot;, saldo = R$&quot; + this.saldo + &quot;]&quot;;
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>

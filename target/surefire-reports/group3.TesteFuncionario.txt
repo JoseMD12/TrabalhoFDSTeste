@@ -1,8 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: group3.TesteFuncionario
 -------------------------------------------------------------------------------
-Tests run: 9, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.094 s <<< FAILURE! - in group3.TesteFuncionario
-group3.TesteFuncionario.testSalarioLiquidoSuperior2500  Time elapsed: 0.005 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <12.0> but was: <2088.335>
-	at group3.TesteFuncionario.testSalarioLiquidoSuperior2500(TesteFuncionario.java:65)
-
+Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.102 s - in group3.TesteFuncionario
