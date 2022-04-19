@@ -47,6 +47,23 @@ public class TesteFuncionario
         assertEquals(00, funcionario.getIRPF());
     }
 
+    @Test
+    public void testImpostoRendaIgual2500(){
+        Funcionario funcionario = new Funcionario(2500);
+        assertEquals(00, funcionario.getIRPF());
+    }
+
+    @Test
+    public void testImpostoRendaSuperior2500(){
+        Funcionario funcionario = new Funcionario(2501);
+        assertEquals(12, funcionario.getIRPF());
+    }
+
+    @Test 
+    public void testSalarioLiquidoSuperior2500(){
+        Funcionario funcionario = new Funcionario(2501);
+        assertEquals(12, funcionario.getSalarioLiquido());
+    }
 
 
 }
