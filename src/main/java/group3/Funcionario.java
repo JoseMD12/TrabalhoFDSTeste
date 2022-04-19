@@ -20,11 +20,11 @@ public class Funcionario {
             this.inss = 4.5;
 
         // no exercicio não diz, mas coloquei INSS 0% para salario acima de 5k
-        } else {
+        }else {
             this.inss = 0; 
         }
 
-        // salario <= 2,5k, então o IRPF = 12%
+        // salario >= 2,5k, então o IRPF = 12%
         if(this.salarioBruto > 2500){
             this.irpf = 12;
 
